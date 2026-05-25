@@ -252,7 +252,7 @@ LIMIT 10;
 | What | Screenshot |
 |---|---|
 | Airflow DAG — dbt_run and dbt_test green | ![Airflow DAG](assets/airflow.png) |
-| raw.orders row count | ![raw.orders](assets/raw-count.png) |
+| raw.orders row count | ![raw orders](assets/raw-count.png) |
 | silver_orders sample rows | ![silver_orders](assets/silver-orders.png) |
 | gold_orders_summary top 10 | ![gold output](assets/gold-order-top-10.png) |
 | streaming_orders live events | ![streaming](assets/streaming_orders.png) |
