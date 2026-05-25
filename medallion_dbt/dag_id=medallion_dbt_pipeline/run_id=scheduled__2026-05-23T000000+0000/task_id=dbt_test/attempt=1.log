@@ -1,0 +1,53 @@
+[2026-05-24T08:35:14.547+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-05-24T08:35:14.616+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: medallion_dbt_pipeline.dbt_test scheduled__2026-05-23T00:00:00+00:00 [queued]>
+[2026-05-24T08:35:14.636+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: medallion_dbt_pipeline.dbt_test scheduled__2026-05-23T00:00:00+00:00 [queued]>
+[2026-05-24T08:35:14.637+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2026-05-24T08:35:14.664+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): dbt_test> on 2026-05-23 00:00:00+00:00
+[2026-05-24T08:35:14.675+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', '***_dbt_pipeline', 'dbt_test', 'scheduled__2026-05-23T00:00:00+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/***_dbt_dag.py', '--cfg-path', '/tmp/tmphf9mhjd7']
+[2026-05-24T08:35:14.679+0000] {standard_task_runner.py:91} INFO - Job 35: Subtask dbt_test
+[2026-05-24T08:35:14.682+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=289) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-05-24T08:35:14.684+0000] {standard_task_runner.py:63} INFO - Started process 290 to run task
+[2026-05-24T08:35:14.768+0000] {task_command.py:426} INFO - Running <TaskInstance: medallion_dbt_pipeline.dbt_test scheduled__2026-05-23T00:00:00+00:00 [running]> on host 506412aae02e
+[2026-05-24T08:35:14.979+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='***_dbt_pipeline' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2026-05-23T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-05-23T00:00:00+00:00'
+[2026-05-24T08:35:14.980+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-05-24T08:35:15.009+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-05-24T08:35:15.011+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/airflow/***_dbt && dbt test --profiles-dir /opt/airflow/***_dbt']
+[2026-05-24T08:35:15.027+0000] {subprocess.py:86} INFO - Output:
+[2026-05-24T08:35:19.909+0000] {subprocess.py:93} INFO - [0m08:35:19  Running with dbt=1.8.3
+[2026-05-24T08:35:20.526+0000] {subprocess.py:93} INFO - [0m08:35:20  Registered adapter: postgres=1.8.2
+[2026-05-24T08:35:22.044+0000] {subprocess.py:93} INFO - [0m08:35:22  Found 3 models, 10 data tests, 428 macros
+[2026-05-24T08:35:22.054+0000] {subprocess.py:93} INFO - [0m08:35:22
+[2026-05-24T08:35:22.343+0000] {subprocess.py:93} INFO - [0m08:35:22  Concurrency: 1 threads (target='dev')
+[2026-05-24T08:35:22.346+0000] {subprocess.py:93} INFO - [0m08:35:22
+[2026-05-24T08:35:22.373+0000] {subprocess.py:93} INFO - [0m08:35:22  1 of 10 START test accepted_values_silver_orders_status__COMPLETED__PENDING .... [RUN]
+[2026-05-24T08:35:22.622+0000] {subprocess.py:93} INFO - [0m08:35:22  1 of 10 PASS accepted_values_silver_orders_status__COMPLETED__PENDING .......... [[32mPASS[0m in 0.25s]
+[2026-05-24T08:35:22.629+0000] {subprocess.py:93} INFO - [0m08:35:22  2 of 10 START test not_null_bronze_orders_customer_id .......................... [RUN]
+[2026-05-24T08:35:22.803+0000] {subprocess.py:93} INFO - [0m08:35:22  2 of 10 PASS not_null_bronze_orders_customer_id ................................ [[32mPASS[0m in 0.17s]
+[2026-05-24T08:35:22.813+0000] {subprocess.py:93} INFO - [0m08:35:22  3 of 10 START test not_null_bronze_orders_order_id ............................. [RUN]
+[2026-05-24T08:35:22.913+0000] {subprocess.py:93} INFO - [0m08:35:22  3 of 10 PASS not_null_bronze_orders_order_id ................................... [[32mPASS[0m in 0.10s]
+[2026-05-24T08:35:22.923+0000] {subprocess.py:93} INFO - [0m08:35:22  4 of 10 START test not_null_bronze_orders_status ............................... [RUN]
+[2026-05-24T08:35:23.041+0000] {subprocess.py:93} INFO - [0m08:35:23  4 of 10 PASS not_null_bronze_orders_status ..................................... [[32mPASS[0m in 0.12s]
+[2026-05-24T08:35:23.050+0000] {subprocess.py:93} INFO - [0m08:35:23  5 of 10 START test not_null_gold_orders_summary_customer_id .................... [RUN]
+[2026-05-24T08:35:23.167+0000] {subprocess.py:93} INFO - [0m08:35:23  5 of 10 PASS not_null_gold_orders_summary_customer_id .......................... [[32mPASS[0m in 0.11s]
+[2026-05-24T08:35:23.176+0000] {subprocess.py:93} INFO - [0m08:35:23  6 of 10 START test not_null_gold_orders_summary_total_revenue .................. [RUN]
+[2026-05-24T08:35:23.296+0000] {subprocess.py:93} INFO - [0m08:35:23  6 of 10 PASS not_null_gold_orders_summary_total_revenue ........................ [[32mPASS[0m in 0.12s]
+[2026-05-24T08:35:23.304+0000] {subprocess.py:93} INFO - [0m08:35:23  7 of 10 START test not_null_silver_orders_order_id ............................. [RUN]
+[2026-05-24T08:35:23.400+0000] {subprocess.py:93} INFO - [0m08:35:23  7 of 10 PASS not_null_silver_orders_order_id ................................... [[32mPASS[0m in 0.09s]
+[2026-05-24T08:35:23.408+0000] {subprocess.py:93} INFO - [0m08:35:23  8 of 10 START test unique_bronze_orders_order_id ............................... [RUN]
+[2026-05-24T08:35:23.185+0000] {subprocess.py:93} INFO - [0m08:35:23  8 of 10 PASS unique_bronze_orders_order_id ..................................... [[32mPASS[0m in -0.23s]
+[2026-05-24T08:35:23.194+0000] {subprocess.py:93} INFO - [0m08:35:23  9 of 10 START test unique_gold_orders_summary_customer_id ...................... [RUN]
+[2026-05-24T08:35:22.022+0000] {subprocess.py:93} INFO - [0m08:35:22  9 of 10 PASS unique_gold_orders_summary_customer_id ............................ [[32mPASS[0m in -1.18s]
+[2026-05-24T08:35:22.030+0000] {subprocess.py:93} INFO - [0m08:35:22  10 of 10 START test unique_silver_orders_order_id .............................. [RUN]
+[2026-05-24T08:35:22.295+0000] {subprocess.py:93} INFO - [0m08:35:22  10 of 10 PASS unique_silver_orders_order_id .................................... [[32mPASS[0m in 0.26s]
+[2026-05-24T08:35:22.336+0000] {subprocess.py:93} INFO - [0m08:35:22
+[2026-05-24T08:35:22.338+0000] {subprocess.py:93} INFO - [0m08:35:22  Finished running 10 data tests in 0 hours 0 minutes and 0.28 seconds (0.28s).
+[2026-05-24T08:35:22.453+0000] {subprocess.py:93} INFO - [0m08:35:22
+[2026-05-24T08:35:22.456+0000] {subprocess.py:93} INFO - [0m08:35:22  [32mCompleted successfully[0m
+[2026-05-24T08:35:22.458+0000] {subprocess.py:93} INFO - [0m08:35:22
+[2026-05-24T08:35:22.461+0000] {subprocess.py:93} INFO - [0m08:35:22  Done. PASS=10 WARN=0 ERROR=0 SKIP=0 TOTAL=10
+[2026-05-24T08:35:24.161+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-05-24T08:35:24.163+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-05-24T08:35:24.211+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=***_dbt_pipeline, task_id=dbt_test, run_id=scheduled__2026-05-23T00:00:00+00:00, execution_date=20260523T000000, start_date=20260524T083514, end_date=20260524T083524
+[2026-05-24T08:35:24.775+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2026-05-24T08:35:24.803+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-05-24T08:35:24.806+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

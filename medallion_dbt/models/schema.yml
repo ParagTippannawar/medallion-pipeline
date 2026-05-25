@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: bronze_orders
+    description: "Raw orders aliased directly from raw.orders with no transformation"
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order"
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+      - name: status
+        data_tests:
+          - not_null
+
+  - name: silver_orders
+    description: "Cleaned orders — cancelled records removed, status uppercased"
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: status
+        data_tests:
+          - accepted_values:
+              values: ['COMPLETED', 'PENDING']
+
+  - name: gold_orders_summary
+    description: "One row per customer with aggregated revenue and order metrics"
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+      - name: total_revenue
+        data_tests:
+          - not_null

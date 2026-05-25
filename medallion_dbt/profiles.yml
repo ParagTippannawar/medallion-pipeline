@@ -1,0 +1,12 @@
+medallion_dbt:
+  outputs:
+    dev:
+      type: postgres
+      host: postgres
+      port: 5432
+      user: medallion
+      pass: medallion
+      dbname: medallion
+      schema: public
+      threads: 1
+  target: dev
